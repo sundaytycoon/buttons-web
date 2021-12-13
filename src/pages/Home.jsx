@@ -1,7 +1,14 @@
 import React from 'react';
 
+import { Titlebar } from '../components';
+
 const Home = () => {
-  return <div>home</div>;
+  return (
+    <>
+      <Titlebar />
+      <div>home</div>
+    </>
+  );
 };
 
 export default Home;

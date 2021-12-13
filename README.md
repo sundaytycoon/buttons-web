@@ -17,7 +17,7 @@
 
 - ✅ react-router
 - ⬜️ redux
-- ⬜️ styled-component
+- ✅ styled-components
 
 ## 적용기술
 
