@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-/* http://meyerweb.com/eric/tools/css/reset/
+  /* font family */
+  html, body {
+    font-family: Karla, sans-serif !important;
+  }
+
+  /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
    License: none (public domain)
   */
