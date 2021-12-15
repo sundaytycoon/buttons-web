@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-import { Banner, Titlebar } from '../components';
+import { Banner, Titlebar, Footer } from '../components';
 
 const Home = () => {
   const [hidingBanner, setHidingBanner] = useState(false);
@@ -23,8 +23,11 @@ const Home = () => {
       <Banner hide={hidingBanner} />
       <Titlebar moveUp={hidingBanner} />
       <div ref={$scrollTrigger} />
+
       {/* FIXME - 테스트성코드 */}
       <div style={{ height: '150vh' }}>home</div>
+
+      <Footer />
     </>
   );
 };

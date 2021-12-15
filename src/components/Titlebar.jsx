@@ -9,13 +9,13 @@ import {
   UnauthMenus,
   AuthMenus,
   NavMenuWrapper,
-  RoundedButton,
   NavSubMenus,
   NavSubMenu,
   NavSubMenuEmoji,
   NavSubMenuTitle,
   NavSubMenuDescription,
 } from './Titlebar.styles';
+import { RoundedButton } from './buttons';
 import Logo from './Logo';
 
 const Titlebar = ({ hasAuthentication = false, moveUp }) => {
@@ -94,7 +94,7 @@ const Titlebar = ({ hasAuthentication = false, moveUp }) => {
               </NavMenuWrapper>
             </Link>
             <Link to="/admin">
-              <RoundedButton>ADMIN</RoundedButton>
+              <RoundedButton size="sm">ADMIN</RoundedButton>
             </Link>
           </AuthMenus>
         ) : (
@@ -105,7 +105,7 @@ const Titlebar = ({ hasAuthentication = false, moveUp }) => {
               </NavMenuWrapper>
             </Link>
             <Link to="/register">
-              <RoundedButton>SIGN UP FREE</RoundedButton>
+              <RoundedButton size="sm">SIGN UP FREE</RoundedButton>
             </Link>
           </UnauthMenus>
         )}

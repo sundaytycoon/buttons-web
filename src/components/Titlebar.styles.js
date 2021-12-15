@@ -72,20 +72,6 @@ export const NavMenuWrapper = styled.span`
   }
 `;
 
-export const RoundedButton = styled.button`
-  height: ${({ theme }) => theme.spacing(4)};
-  padding: ${({ theme }) => `0 ${theme.spacing(2)}`};
-  border-radius: ${({ theme }) => theme.spacing(1)};
-  background-color: ${({ theme }) => theme.color.primary};
-  font-size: 0.875rem;
-  font-weight: 700;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.color.secondary};
-  }
-`;
-
 export const NavSubMenus = styled.ul`
   position: absolute;
   top: 73px;
@@ -115,6 +101,7 @@ export const NavSubMenuDescription = styled.span`
 export const NavSubMenu = styled.li`
   position: relative;
   padding: ${({ theme }) => `${theme.spacing(2)} ${theme.spacing(3)}`};
+  background-color: ${({ theme }) => theme.color.white};
 
   &:not(:last-child) {
     padding: ${({ theme }) =>
