@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 
-const HomePage = lazy(() => import('./pages/Home'));
-const LoginPage = lazy(() => import('./pages/Login'));
-const RegisterPage = lazy(() => import('./pages/Register'));
-const Error404Page = lazy(() => import('./pages/error/404'));
+const HomePage = lazy(() => import('src/pages/Home'));
+const LoginPage = lazy(() => import('src/pages/Login'));
+const RegisterPage = lazy(() => import('src/pages/Register'));
+const Error404Page = lazy(() => import('src/pages/Error/404'));
 
 const routes = [
   { path: '/', exact: true, Component: HomePage },

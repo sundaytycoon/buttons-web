@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Wrapper } from './RoundedButton.styles';
+import { Wrapper } from './styles';
 
 const RoundedButton = ({ size = 'md', onClick, children }) => {
   let coefficient;

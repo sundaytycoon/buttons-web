@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-import { Banner, Titlebar, Footer } from '../components';
+import HomeBanner from 'src/components/banners/HomeBanner';
+import MainTitlebar from 'src/components/titlebars/MainTitlebar';
+import MainFooter from 'src/components/footers/MainFooter';
 
 const Home = () => {
   const [hidingBanner, setHidingBanner] = useState(false);
-  const $scrollTrigger = useRef(null);
+  const $bannerTrigger = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,21 +15,21 @@ const Home = () => {
       },
       { threshold: 0.5, rootMargin: '74px' }
     );
-    observer.observe($scrollTrigger.current);
+    observer.observe($bannerTrigger.current);
 
     return () => observer.disconnect();
   }, []);
 
   return (
     <>
-      <Banner hide={hidingBanner} />
-      <Titlebar moveUp={hidingBanner} />
-      <div ref={$scrollTrigger} />
+      <HomeBanner hide={hidingBanner} />
+      <MainTitlebar moveUp={hidingBanner} />
+      <div ref={$bannerTrigger} />
 
       {/* FIXME - 테스트성코드 */}
       <div style={{ height: '150vh' }}>home</div>
 
-      <Footer />
+      <MainFooter />
     </>
   );
 };

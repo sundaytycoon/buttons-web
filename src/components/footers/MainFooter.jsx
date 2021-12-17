@@ -11,9 +11,7 @@ import {
   SocialLinkWrapper,
   AcknowledgementStatmentWrapper,
   AcknowledgementStatmentDescription,
-} from './Footer.styles';
-import { Logo } from './';
-
+} from './styles';
 import {
   Linktree,
   Instagram,
@@ -22,10 +20,10 @@ import {
   Linkedin,
   Tiktok,
   Youtube,
-} from '../assets/icons';
-import { Flag } from '../assets/images';
+} from 'src/assets/icons';
+import { Logo, Flag } from 'src/assets/images';
 
-const Footer = () => {
+const MainFooter = () => {
   return (
     <Wrapper>
       <Navs>
@@ -95,4 +93,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default MainFooter;

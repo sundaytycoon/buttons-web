@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Wrapper, Content, ContentLink } from './Banner.styles';
+import { Wrapper, Content, ContentLink } from './styles';
 
-const Banner = ({ hide }) => {
+const HomeBanner = ({ hide }) => {
   return (
     <Wrapper hide={hide}>
       <Content>
@@ -13,4 +13,4 @@ const Banner = ({ hide }) => {
   );
 };
 
-export default Banner;
+export default HomeBanner;

@@ -14,11 +14,11 @@ import {
   NavSubMenuEmoji,
   NavSubMenuTitle,
   NavSubMenuDescription,
-} from './Titlebar.styles';
-import { RoundedButton } from './buttons';
-import Logo from './Logo';
+} from './styles';
+import RoundedButton from 'src/components/buttons/RoundedButton';
+import { Logo } from 'src/assets/images';
 
-const Titlebar = ({ hasAuthentication = false, moveUp }) => {
+const HomeTitlebar = ({ hasAuthentication = false, moveUp }) => {
   const [hoverMenu, setHoverMenu] = useState('');
 
   return (
@@ -114,4 +114,4 @@ const Titlebar = ({ hasAuthentication = false, moveUp }) => {
   );
 };
 
-export default Titlebar;
+export default HomeTitlebar;

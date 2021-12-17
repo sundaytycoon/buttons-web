@@ -1,4 +1,4 @@
-# profile.me-front
+# buttons-web
 
 ## 무엇을 해볼꺼냐?
 
@@ -27,3 +27,4 @@
 
 - [React Folder Structure](https://www.robinwieruch.de/react-folder-structure/)
 - [Code splitting routers with React Lazy and Suspense](https://linguinecode.com/post/code-splitting-react-router-with-react-lazy-and-react-suspense)
+- [React Project Spectrum](https://github.com/withspectrum/spectrum)

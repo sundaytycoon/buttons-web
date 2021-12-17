@@ -9,9 +9,9 @@ export const Wrapper = styled.header`
   justify-content: space-between;
   padding: ${({ theme }) => `0 ${theme.spacing(3)}`};
   background-color: ${({ theme }) => theme.color.white};
-  box-shadow: rgb(215 220 225) 0px -1px 0px inset;
+  box-shadow: ${({ theme }) => `${theme.color.whiteGray} 0px -1px 0px inset`};
   transform: ${({ theme, moveUp }) =>
-    `translateY(${moveUp ? '0' : theme.space.bannerHeight})`};
+    `translateY(${moveUp ? '0' : theme.height.banner})`};
   transition: transform 0.3s ease-in-out 0s;
 `;
 
@@ -74,7 +74,7 @@ export const NavMenuWrapper = styled.span`
 
 export const NavSubMenus = styled.ul`
   position: absolute;
-  top: 73px;
+  top: ${({ theme }) => theme.height.titlebar};
   left: 140px;
   width: 310px;
   margin: 0;

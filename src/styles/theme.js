@@ -14,8 +14,12 @@ const theme = {
     septenary: 'rgb(138, 134, 229)',
   },
 
-  space: {
-    bannerHeight: '74px',
+  height: {
+    banner: '74px',
+    titlebar: '74px',
+
+    combine: (...args) =>
+      `${args.reduce((prev, next) => prev + parseInt(next), 0)}px`,
   },
 
   spacing: (space) => `${space * 8}px`,
