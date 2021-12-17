@@ -16,6 +16,7 @@ import {
   NavSubMenuDescription,
 } from './styles';
 import RoundedButton from 'src/components/buttons/RoundedButton';
+import Typography from 'src/components/common/Typography';
 import { Logo } from 'src/assets/images';
 
 const HomeTitlebar = ({ hasAuthentication = false, moveUp }) => {
@@ -85,31 +86,30 @@ const HomeTitlebar = ({ hasAuthentication = false, moveUp }) => {
           </Link>
         </NavMenus>
       </InnerWrapper>
-      <InnerWrapper>
-        {hasAuthentication ? (
-          <AuthMenus>
-            <Link to="/logout">
-              <NavMenuWrapper>
-                <NavMenu>Sign out</NavMenu>
-              </NavMenuWrapper>
-            </Link>
-            <Link to="/admin">
-              <RoundedButton size="sm">ADMIN</RoundedButton>
-            </Link>
-          </AuthMenus>
-        ) : (
-          <UnauthMenus>
-            <Link to="/login">
-              <NavMenuWrapper>
-                <NavMenu>Log in</NavMenu>
-              </NavMenuWrapper>
-            </Link>
-            <Link to="/register">
-              <RoundedButton size="sm">SIGN UP FREE</RoundedButton>
-            </Link>
-          </UnauthMenus>
-        )}
-      </InnerWrapper>
+
+      {hasAuthentication ? (
+        <AuthMenus>
+          <Link to="/logout">
+            <NavMenuWrapper>
+              <NavMenu>Sign out</NavMenu>
+            </NavMenuWrapper>
+          </Link>
+          <RoundedButton hoverable size="sm" to="/admin">
+            <Typography level={0.75}>ADMIN</Typography>
+          </RoundedButton>
+        </AuthMenus>
+      ) : (
+        <UnauthMenus>
+          <Link to="/login">
+            <NavMenuWrapper>
+              <NavMenu>Log in</NavMenu>
+            </NavMenuWrapper>
+          </Link>
+          <RoundedButton hoverable size="sm" to="/register">
+            <Typography level={0.75}>SIGN UP FREE</Typography>
+          </RoundedButton>
+        </UnauthMenus>
+      )}
     </Wrapper>
   );
 };

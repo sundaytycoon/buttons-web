@@ -35,12 +35,18 @@ export const NavMenu = styled.span`
 `;
 
 export const UnauthMenus = styled.div`
+  display: flex;
+  align-items: center;
+
   & > :not(:last-child) {
     margin-right: ${({ theme }) => theme.spacing(4)};
   }
 `;
 
 export const AuthMenus = styled.div`
+  display: flex;
+  align-items: center;
+
   & > :not(:last-child) {
     margin-right: ${({ theme }) => theme.spacing(4)};
   }

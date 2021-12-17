@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Wrapper } from './styles';
+import { Wrapper, HoverLayer, Button } from './styles';
+import theme from 'src/styles/theme';
 
-const RoundedButton = ({ size = 'md', onClick, children }) => {
+const RoundedButton = ({
+  size = 'md',
+  color = theme.color.primary,
+  hoverable,
+  to,
+  children,
+  ...props
+}) => {
+  const [visibleHoverLayer, setVisibleHoverLayer] = useState(false);
+
   let coefficient;
-  let fontSize;
 
   switch (size) {
     case 'sm':
       coefficient = 1;
-      fontSize = '0.875rem';
       break;
 
     case 'md':
       coefficient = 2;
-      fontSize = '1.25rem';
       break;
 
     // case 'lg':
@@ -22,12 +30,42 @@ const RoundedButton = ({ size = 'md', onClick, children }) => {
 
     default:
       coefficient = 1;
-      fontSize = '0.875rem';
   }
 
   return (
-    <Wrapper coefficient={coefficient} fontSize={fontSize} onClick={onClick}>
-      {children}
+    <Wrapper>
+      {hoverable && (
+        <HoverLayer
+          rounded
+          coefficient={coefficient}
+          visible={visibleHoverLayer}
+        />
+      )}
+      {to ? (
+        <Link to={to}>
+          <Button
+            rounded
+            coefficient={coefficient}
+            bgColor={color}
+            onMouseEnter={() => setVisibleHoverLayer(true)}
+            onMouseLeave={() => setVisibleHoverLayer(false)}
+            {...props}
+          >
+            {children}
+          </Button>
+        </Link>
+      ) : (
+        <Button
+          rounded
+          coefficient={coefficient}
+          bgColor={color}
+          onMouseEnter={() => setVisibleHoverLayer(true)}
+          onMouseLeave={() => setVisibleHoverLayer(false)}
+          {...props}
+        >
+          {children}
+        </Button>
+      )}
     </Wrapper>
   );
 };
