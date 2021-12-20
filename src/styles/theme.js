@@ -14,15 +14,29 @@ const theme = {
     septenary: 'rgb(138, 134, 229)',
   },
 
+  size: {
+    icon: 24,
+  },
+
+  width: {
+    icon: '24px',
+
+    mobileDevice: '375px',
+  },
+
   height: {
     banner: '74px',
     titlebar: '74px',
 
-    combine: (...args) =>
-      `${args.reduce((prev, next) => prev + parseInt(next), 0)}px`,
+    icon: '24px',
+
+    mobileDevice: '812px',
   },
 
   spacing: (space) => `${space * 8}px`,
+
+  combine: (...args) =>
+    `${args.reduce((prev, next) => prev + parseInt(next), 0)}px`,
 };
 
 export default theme;

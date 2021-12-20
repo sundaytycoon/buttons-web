@@ -71,13 +71,16 @@ const MainFooter = () => {
       <BaseLine>
         <Logo />
         <SocialLinkWrapper>
-          <Linktree />
-          <Instagram />
-          <Facebook />
-          <Twitter />
-          <Linkedin />
-          <Tiktok />
-          <Youtube />
+          <Linktree size={21} to="https://linktr.ee/linktr.ee" />
+          <Instagram size={20} to="https://www.instagram.com/linktr.ee/" />
+          <Facebook size={20} to="https://www.facebook.com/Linktree/" />
+          <Twitter size={20} to="https://twitter.com/linktree_" />
+          <Linkedin size={20} to="https://www.linkedin.com/company/linktree/" />
+          <Tiktok size={20} to="https://www.tiktok.com/@linktr.ee" />
+          <Youtube
+            size={20}
+            to="https://www.youtube.com/channel/UC8We2IKQo4lbongz7uOn2vA"
+          />
         </SocialLinkWrapper>
       </BaseLine>
 

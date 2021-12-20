@@ -5,3 +5,5 @@ export { default as Twitter } from './Twitter';
 export { default as Linkedin } from './Linkedin';
 export { default as Tiktok } from './Tiktok';
 export { default as Youtube } from './Youtube';
+export { default as Spotify } from './Spotify';
+export { default as Twitch } from './Twitch';

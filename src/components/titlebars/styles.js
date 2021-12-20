@@ -13,6 +13,7 @@ export const Wrapper = styled.header`
   transform: ${({ theme, moveUp }) =>
     `translateY(${moveUp ? '0' : theme.height.banner})`};
   transition: transform 0.3s ease-in-out 0s;
+  z-index: 5;
 `;
 
 export const InnerWrapper = styled.div`
