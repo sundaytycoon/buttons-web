@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import HomeBanner from 'src/components/banners/HomeBanner';
+import { HomeBanner } from 'src/components/banner';
+
 import MainTitlebar from 'src/components/titlebars/MainTitlebar';
 import MainFooter from 'src/components/footers/MainFooter';
 import Typography from 'src/components/common/Typography';
@@ -90,7 +91,7 @@ const Home = () => {
 
   return (
     <>
-      <HomeBanner hide={hidingBanner} />
+      <HomeBanner />
       <MainTitlebar moveUp={hidingBanner} />
       <div ref={$bannerTrigger} />
 

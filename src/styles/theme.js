@@ -1,4 +1,12 @@
 const theme = {
+  base: {
+    white: 'rgb(255, 255, 255)',
+  },
+
+  bg: {
+    banner: 'rgb(125, 85, 255)',
+  },
+
   color: {
     white: 'rgb(255, 255, 255)',
     black: 'rgb(0, 0, 0)',
@@ -32,6 +40,11 @@ const theme = {
 
     mobileDevice: '812px',
   },
+
+  spacing: (space) => `${space * 8}px`,
+
+  combine: (...args) =>
+    `${args.reduce((prev, next) => prev + parseInt(next), 0)}px`,
 };
 
 export default theme;
