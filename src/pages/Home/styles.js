@@ -220,6 +220,7 @@ export const IntroLinkFormImage = styled.img`
 export const IntroLinkInputWrapper = styled.span`
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   font-size: 2rem;
   letter-spacing: -0.64px;
   color: rgb(38, 50, 56);

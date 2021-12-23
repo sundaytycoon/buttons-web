@@ -5,7 +5,7 @@ import HomeBanner from 'src/components/banners/HomeBanner';
 import MainTitlebar from 'src/components/titlebars/MainTitlebar';
 import MainFooter from 'src/components/footers/MainFooter';
 import Typography from 'src/components/common/Typography';
-import RoundedButton from 'src/components/buttons/RoundedButton';
+import RoundedButton from 'src/components/button/RoundedButton';
 import theme from 'src/styles/theme';
 import {
   Main,
@@ -32,6 +32,44 @@ import {
 } from './styles';
 import { Instagram, Spotify, Twitch } from 'src/assets/icons';
 import Logo from 'src/assets/images/logo.png';
+
+const IntroLinkInputPretext = () => {
+  const [pretext, setPretext] = useState('');
+
+  useEffect(() => {
+    const text = 'yournamehere';
+    let index = 0;
+
+    const interval = setInterval(() => {
+      setPretext(text.substring(0, index));
+
+      if (index >= text.length) {
+        clearInterval(interval);
+      }
+
+      index++;
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div style={{ position: 'absolute', inset: 0 }}>
+      {pretext}
+      <span
+        style={{
+          position: 'absolute',
+          top: 0,
+          width: '1px',
+          fontSize: 0,
+          background: 'black',
+        }}
+      >
+        |
+      </span>
+    </div>
+  );
+};
 
 const Home = () => {
   const [hidingBanner, setHidingBanner] = useState(false);
@@ -126,8 +164,11 @@ const Home = () => {
                 <IntroLinkFormImage src={Logo} />
                 <IntroLinkInputWrapper>
                   <span>linktr.ee/</span>
-                  <IntroLinkInputInnerWrapper></IntroLinkInputInnerWrapper>
+                  <IntroLinkInputInnerWrapper>
+                    <IntroLinkInputPretext />
+                  </IntroLinkInputInnerWrapper>
                 </IntroLinkInputWrapper>
+                <span>button</span>
               </IntroLinkForm>
             </IntroLinkFormWrapper>
           </IntroRegisterWrapper>

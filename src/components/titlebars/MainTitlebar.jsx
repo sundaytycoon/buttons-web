@@ -15,7 +15,7 @@ import {
   NavSubMenuTitle,
   NavSubMenuDescription,
 } from './styles';
-import RoundedButton from 'src/components/buttons/RoundedButton';
+import RoundedButton from 'src/components/button/RoundedButton';
 import Typography from 'src/components/common/Typography';
 import { Logo } from 'src/assets/images';
 
