@@ -26,7 +26,7 @@ const TextPath = styled.path`
   fill: ${({ theme }) => theme.color.black};
 `;
 
-const MainLogo = () => {
+const Logo = () => {
   return (
     <Svg viewBox="0 0 85 16">
       <Link to="/">
@@ -39,4 +39,4 @@ const MainLogo = () => {
   );
 };
 
-export default MainLogo;
+export default Logo;

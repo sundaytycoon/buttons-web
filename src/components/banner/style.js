@@ -5,6 +5,7 @@ import {
   HOME_BANNER_HEIGHT,
   HOME_BANNER_EXPANDED_HEIGHT,
   MEDIA_BREAK,
+  zIndex,
 } from 'src/styles/layout';
 import { spacing } from 'src/styles/util';
 
@@ -21,6 +22,7 @@ export const HomeBannerContainer = styled.div`
     `translateY(${show ? '0' : `-${HOME_BANNER_HEIGHT}px`})`};
   transition: transform 0.3s ease-in-out 0s;
   font-size: 1.25rem;
+  z-index: ${zIndex.banner};
 
   @media (max-width: ${MEDIA_BREAK}px) {
     height: ${HOME_BANNER_EXPANDED_HEIGHT}px;

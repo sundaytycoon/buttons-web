@@ -24,12 +24,14 @@ export const HomeBanner = () => {
   }, []);
 
   return (
-    <HomeBannerContainer show={show}>
-      <HomeBannerContent>
-        <span>🎉 We just announced our new Shopify store feature! </span>
-        <HomeBannerContentLink to="/stores">Learn more</HomeBannerContentLink>
-      </HomeBannerContent>
+    <>
+      <HomeBannerContainer show={show}>
+        <HomeBannerContent>
+          <span>🎉 We just announced our new Shopify store feature! </span>
+          <HomeBannerContentLink to="/stores">Learn more</HomeBannerContentLink>
+        </HomeBannerContent>
+      </HomeBannerContainer>
       <div ref={$trigger} />
-    </HomeBannerContainer>
+    </>
   );
 };

@@ -1,6 +1,7 @@
 const theme = {
   base: {
     white: 'rgb(255, 255, 255)',
+    whiteGray: 'rgb(215, 220, 225)',
   },
 
   bg: {

@@ -1,5 +1,12 @@
 import React from 'react';
+import BaseTitlebar from './base';
 
-export const MobileTitlebar = () => {};
+export const HomeMobileTitlebar = ({ banner }) => (
+  <BaseTitlebar banner={banner} />
+);
 
-export const DesktopTitlebar = () => {};
+export const HomeDesktopTitlebar = ({ banner }) => (
+  <BaseTitlebar banner={banner} />
+);
+
+export const BlogTitlebar = () => <BaseTitlebar />;
