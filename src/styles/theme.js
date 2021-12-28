@@ -1,11 +1,17 @@
 const theme = {
   base: {
-    white: 'rgb(255, 255, 255)',
-    whiteGray: 'rgb(215, 220, 225)',
+    white: '#FFFFFF',
+    black: '#000000',
+    whiteGray: '#D7DCE1',
   },
 
   bg: {
-    banner: 'rgb(125, 85, 255)',
+    banner: '#7D55FF',
+  },
+
+  button: {
+    primary: '#7551E9',
+    secondary: '#39E09B',
   },
 
   color: {

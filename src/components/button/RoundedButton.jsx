@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Wrapper, HoverLayer, Button } from './styles';
+import { Wrapper, HoverLayer, Button } from './style';
 import theme from 'src/styles/theme';
 
 const RoundedButton = ({

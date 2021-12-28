@@ -7,6 +7,7 @@ import {
   zIndex,
 } from 'src/styles/layout';
 import { spacing } from 'src/styles/util';
+import theme from 'src/styles/theme';
 
 export const Container = styled.header`
   position: fixed;
@@ -38,6 +39,65 @@ export const MenuList = styled.div`
   }
 `;
 
+export const SubMenuWrappr = styled.ul`
+  position: absolute;
+  top: ${TITLEBAR_HEIGHT}px;
+  left: 140px;
+  width: 310px;
+  border: 1px solid ${theme.base.whiteGray};
+  border-radius: 0px 0px 24px 24px;
+  display: none;
+  background-color: ${theme.base.white};
+  box-shadow: rgb(10 11 13 / 12%) 0px 12px 16px;
+`;
+
+export const SubMenuItem = styled.li`
+  padding: ${spacing(2)} ${spacing(3)};
+  position: relative;
+
+  &:not(:last-child) {
+    padding: ${spacing(2)} ${spacing(3)} ${spacing(1.5)};
+  }
+  &:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 285px;
+    height: 1px;
+    background-color: ${theme.base.whiteGray};
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    span {
+      padding-right: ${spacing(1.5)};
+      line-height: initial;
+    }
+
+    p {
+      padding: 0;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+
+  p {
+    padding: ${spacing(1.5)} 0;
+    line-height: 1.6;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+  }
+
+  &:hover {
+    p {
+      text-decoration: underline;
+    }
+  }
+`;
+
 export const MenuItem = styled.span`
   height: ${TITLEBAR_HEIGHT}px;
   line-height: ${TITLEBAR_HEIGHT}px;
@@ -60,6 +120,10 @@ export const MenuItem = styled.span`
 
   &:hover {
     background-size: 100% 2px;
+  }
+
+  &:hover ${SubMenuWrappr} {
+    display: block;
   }
 `;
 
