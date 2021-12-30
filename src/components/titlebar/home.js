@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { NavigationContext } from 'src/context/navigation';
-import { HOME_BANNER_HEIGHT } from 'src/styles/layout';
 import theme from 'src/styles/theme';
+import { HEIGHT } from 'src/styles/layout';
 import { MainLogo } from 'src/assets/images';
+import { Button } from 'src/components/button';
 import {
   Container,
   MenuWrapper,
@@ -14,27 +14,30 @@ import {
   SubMenuItem,
   AuthMenuWrapper,
 } from './style';
-import { Button } from 'src/components/button';
 
-const BaseTitlebar = ({ banner, hasAuthentication = false }) => {
+export const Mobile = () => {
+  return <div>Mobile Titlebar</div>;
+};
+
+export const Desktop = ({ banner, hasAuthentication = false }) => {
   const [putUp, setPutUp] = useState(!banner);
-  const $trigger = useRef(null);
+  const intersectionRef = useRef(null);
 
   useEffect(() => {
-    let observer = null;
+    let intersectionObserver = null;
 
     if (banner) {
-      observer = new IntersectionObserver(
+      intersectionObserver = new IntersectionObserver(
         ([entry]) => {
           setPutUp(entry.rootBounds.y > entry.boundingClientRect.y);
         },
-        { threshold: 0.5, rootMargin: `${HOME_BANNER_HEIGHT}px` }
+        { threshold: 0.5, rootMargin: `${HEIGHT.BANNER.MOBILE}px` }
       );
-      observer.observe($trigger.current);
+      intersectionObserver.observe(intersectionRef.current);
     }
 
-    return () => observer && observer.disconnect();
-  });
+    return () => intersectionObserver && intersectionObserver.disconnect();
+  }, [banner]);
 
   return (
     <>
@@ -129,9 +132,7 @@ const BaseTitlebar = ({ banner, hasAuthentication = false }) => {
           )}
         </AuthMenuWrapper>
       </Container>
-      <div ref={$trigger} />
+      <div ref={intersectionRef} />
     </>
   );
 };
-
-export default BaseTitlebar;

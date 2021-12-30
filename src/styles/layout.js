@@ -1,9 +1,20 @@
-export const HOME_BANNER_HEIGHT = 74;
-export const HOME_BANNER_EXPANDED_HEIGHT = 92;
-export const TITLEBAR_HEIGHT = 74;
-export const MEDIA_BREAK = 768;
+export const HEIGHT = {
+  TITLEBAR: {
+    MOBILE: 56,
+    DESKTOP: 74,
+  },
+  BANNER: {
+    MOBILE: 92,
+    DESKTOP: 74,
+  },
+};
 
-export const zIndex = {
-  banner: 3,
-  titlebar: 5,
+export const MEDIA_BREAK = {
+  TABLET: 768,
+  LAPTOP: 992,
+};
+
+export const Z_INDEX = {
+  TITLEBAR: 5,
+  BANNER: 3,
 };

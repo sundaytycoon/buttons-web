@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-import {
-  HOME_BANNER_HEIGHT,
-  TITLEBAR_HEIGHT,
-  MEDIA_BREAK,
-  zIndex,
-} from 'src/styles/layout';
+import { HEIGHT, Z_INDEX } from 'src/styles/layout';
 import { spacing } from 'src/styles/util';
 import theme from 'src/styles/theme';
+
+const { TITLEBAR, BANNER } = HEIGHT;
 
 export const Container = styled.header`
   position: fixed;
@@ -20,9 +17,9 @@ export const Container = styled.header`
   background-color: ${({ theme }) => theme.base.white};
   box-shadow: ${({ theme }) => `${theme.base.whiteGray} 0px -1px 0px inset`};
   transform: ${({ putUp }) =>
-    `translateY(${putUp ? '0' : `${HOME_BANNER_HEIGHT}px`})`};
+    `translateY(${putUp ? '0' : `${BANNER.DESKTOP}px`})`};
   transition: transform 0.3s ease-in-out 0s;
-  z-index: ${zIndex.titlebar};
+  z-index: ${Z_INDEX.TITLEBAR};
 `;
 
 export const MenuWrapper = styled.nav`
@@ -41,7 +38,7 @@ export const MenuList = styled.div`
 
 export const SubMenuWrappr = styled.ul`
   position: absolute;
-  top: ${TITLEBAR_HEIGHT}px;
+  top: ${TITLEBAR.DESKTOP}px;
   left: 140px;
   width: 310px;
   border: 1px solid ${theme.base.whiteGray};
@@ -99,8 +96,8 @@ export const SubMenuItem = styled.li`
 `;
 
 export const MenuItem = styled.span`
-  height: ${TITLEBAR_HEIGHT}px;
-  line-height: ${TITLEBAR_HEIGHT}px;
+  height: ${TITLEBAR.DESKTOP}px;
+  line-height: ${TITLEBAR.DESKTOP}px;
   display: inline-block;
   letter-spacing: 0.5px;
   background-image: linear-gradient(

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { HOME_BANNER_HEIGHT } from 'src/styles/layout';
+import { HEIGHT } from 'src/styles/layout';
 import {
   HomeBannerContainer,
   HomeBannerContent,
@@ -9,18 +9,18 @@ import {
 
 export const HomeBanner = () => {
   const [show, setShow] = useState(true);
-  const $trigger = useRef(null);
+  const intersectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
         setShow(entry.rootBounds.y <= entry.boundingClientRect.y);
       },
-      { threshold: 0.5, rootMargin: `${HOME_BANNER_HEIGHT}px` }
+      { threshold: 0.5, rootMargin: `${HEIGHT.BANNER.MOBILE}px` }
     );
-    observer.observe($trigger.current);
+    intersectionObserver.observe(intersectionRef.current);
 
-    return () => observer.disconnect();
+    return () => intersectionObserver.disconnect();
   }, []);
 
   return (
@@ -31,7 +31,7 @@ export const HomeBanner = () => {
           <HomeBannerContentLink to="/stores">Learn more</HomeBannerContentLink>
         </HomeBannerContent>
       </HomeBannerContainer>
-      <div ref={$trigger} />
+      <div ref={intersectionRef} />
     </>
   );
 };
