@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import theme from 'src/styles/theme';
-import { SmallButton, MediumButton, LargeButton } from './style';
+import { Small, Medium, Large, Icon } from './style';
 
 export const Button = ({
   to = '/',
@@ -15,25 +15,29 @@ export const Button = ({
 
   switch (size) {
     case 'sm':
-      SizeButton = SmallButton;
+      SizeButton = Small;
       break;
 
     case 'md':
-      SizeButton = MediumButton;
+      SizeButton = Medium;
       break;
 
     case 'lg':
-      SizeButton = LargeButton;
+      SizeButton = Large;
       break;
 
     default:
   }
 
   return (
-    <Link to={to}>
-      <SizeButton bg={bg} color={color}>
+    <SizeButton bg={bg} color={color}>
+      <Link to={to}>
         <span>{children}</span>
-      </SizeButton>
-    </Link>
+      </Link>
+    </SizeButton>
   );
+};
+
+export const IconButton = ({ icon, ...props }) => {
+  return <Icon {...props}>{icon}</Icon>;
 };

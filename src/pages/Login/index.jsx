@@ -8,7 +8,7 @@ const Login = () => {
     <>
       <HomeBanner />
       <HomeTitlebar banner />
-      <div style={{ height: '120vh' }} />
+      <div style={{ height: '1200vh' }} />
     </>
   );
 };

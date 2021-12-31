@@ -4,30 +4,33 @@ import { HEIGHT, Z_INDEX } from 'src/styles/layout';
 import { spacing } from 'src/styles/util';
 import theme from 'src/styles/theme';
 
-const { TITLEBAR, BANNER } = HEIGHT;
+const { BANNER, TITLEBAR, SUB_TITLEBAR } = HEIGHT;
 
 export const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 0 ${spacing(3)};
+  height: ${({ mobile }) => (mobile ? TITLEBAR.MOBILE : TITLEBAR.DESKTOP)}px;
+  padding: 0 ${({ mobile }) => (mobile ? spacing(2) : spacing(3))};
   display: flex;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.base.white};
+  background-color: ${({ theme }) => theme.bg.titlebar};
   box-shadow: ${({ theme }) => `${theme.base.whiteGray} 0px -1px 0px inset`};
-  transform: ${({ putUp }) =>
-    `translateY(${putUp ? '0' : `${BANNER.DESKTOP}px`})`};
+  transform: ${({ mobile, hidingBanner }) =>
+    `translateY(${
+      hidingBanner ? '0' : mobile ? `${BANNER.MOBILE}px` : `${BANNER.DESKTOP}px`
+    })`};
   transition: transform 0.3s ease-in-out 0s;
   z-index: ${Z_INDEX.TITLEBAR};
 `;
 
-export const MenuWrapper = styled.nav`
+export const LeftWrapper = styled.nav`
   display: flex;
   align-items: center;
 `;
 
-export const MenuList = styled.div`
+export const NavMenuList = styled.div`
   margin-left: ${spacing(4)};
   display: flex;
 
@@ -36,7 +39,7 @@ export const MenuList = styled.div`
   }
 `;
 
-export const SubMenuWrappr = styled.ul`
+export const NavSubMenuWrappr = styled.ul`
   position: absolute;
   top: ${TITLEBAR.DESKTOP}px;
   left: 140px;
@@ -44,11 +47,11 @@ export const SubMenuWrappr = styled.ul`
   border: 1px solid ${theme.base.whiteGray};
   border-radius: 0px 0px 24px 24px;
   display: none;
-  background-color: ${theme.base.white};
+  background-color: ${theme.bg.titlebar};
   box-shadow: rgb(10 11 13 / 12%) 0px 12px 16px;
 `;
 
-export const SubMenuItem = styled.li`
+export const NavSubMenuItem = styled.li`
   padding: ${spacing(2)} ${spacing(3)};
   position: relative;
 
@@ -95,9 +98,7 @@ export const SubMenuItem = styled.li`
   }
 `;
 
-export const MenuItem = styled.span`
-  height: ${TITLEBAR.DESKTOP}px;
-  line-height: ${TITLEBAR.DESKTOP}px;
+export const NavMenuItem = styled.span`
   display: inline-block;
   letter-spacing: 0.5px;
   background-image: linear-gradient(
@@ -119,18 +120,133 @@ export const MenuItem = styled.span`
     background-size: 100% 2px;
   }
 
-  &:hover ${SubMenuWrappr} {
+  &:hover ${NavSubMenuWrappr} {
     display: block;
   }
 `;
 
-export const AuthMenuWrapper = styled.nav`
+export const RightWrapper = styled.nav`
   display: flex;
   align-items: center;
 
   & > :not(:last-child) {
-    margin-right: ${spacing(4)};
+    margin-right: ${({ mobile }) => (mobile ? spacing(2) : spacing(4))};
   }
 `;
 
-// export const NavigationContainer = styled.nav``;
+export const SubContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: ${TITLEBAR.MOBILE}px;
+  height: ${SUB_TITLEBAR}px;
+  display: flex;
+  background-color: ${theme.bg.subTitlebar};
+
+  transform: ${({ show, hidingBanner }) =>
+    `translateY(${
+      show
+        ? hidingBanner
+          ? '0'
+          : `${BANNER.MOBILE}px`
+        : hidingBanner
+        ? `-${SUB_TITLEBAR}px`
+        : `${BANNER.MOBILE - SUB_TITLEBAR}px`
+    })`};
+  transition: transform 0.3s ease-in-out 0s;
+`;
+
+export const SubMenuItem = styled.div`
+  flex-grow: 1;
+  line-height: ${SUB_TITLEBAR}px;
+  text-align: center;
+  font-size: 0.875rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  a {
+    display: block;
+  }
+`;
+
+export const SideContainer = styled.aside`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: ${theme.bg.sideMenu};
+  transform: ${({ show }) => `transLateX(${show ? '0' : '100%'})`};
+  transition: transform 0.5s ease 0s;
+  overflow-y: auto;
+  z-index: ${Z_INDEX.SIDE_MENU};
+`;
+
+export const SideHeader = styled.div`
+  padding: ${spacing(3)} ${spacing(2)};
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SideMenuWrapper = styled.div`
+  padding: ${spacing(5)} ${spacing(3)};
+`;
+
+export const SideMenuItem = styled.div`
+  padding-bottom: ${spacing(3)};
+  font-size: 1.25rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  a {
+    display: block;
+  }
+`;
+
+export const SideDropdownMenuHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SideDropdownMenuWrapper = styled.ul``;
+
+export const SideDropdownMenuItem = styled.li``;
+
+export const SideFooter = styled.div`
+  margin: 0 ${spacing(3)} ${spacing(3)};
+  padding-top: ${spacing(4)};
+  border-top: 1px solid ${theme.border.sideMenu};
+  display: flex;
+  flex-direction: column;
+`;
+
+export const SideFooterMenuWrapper = styled.div`
+  padding-bottom: ${spacing(4)};
+`;
+
+export const SideFooterMenuItem = styled.div`
+  font-size: 0.875rem;
+
+  &:not(:last-child) {
+    padding-bottom: ${spacing(2)};
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  a {
+    display: block;
+  }
+`;
+
+export const SideFooterSocailLinkWrapper = styled.div`
+  & > *:not(:last-child) {
+    margin-right: ${spacing(3)};
+  }
+`;

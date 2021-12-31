@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { spacing, tint } from 'src/styles/util';
 
-const BaseButton = styled.button`
+const Base = styled.button`
   display: flex;
   align-items: center;
   background-color: ${({ bg }) => bg};
@@ -19,28 +19,39 @@ const BaseButton = styled.button`
   }
 `;
 
-export const SmallButton = styled(BaseButton)`
+export const Small = styled(Base)`
   height: ${spacing(4)};
   padding: 0 ${spacing(2)};
   border-radius: ${spacing(1)};
 `;
 
-export const MediumButton = styled(BaseButton)`
+export const Medium = styled(Base)`
   height: ${spacing(6)};
   padding: 0 ${spacing(3)};
   border-radius: ${spacing(1.5)};
 `;
 
-export const LargeButton = styled(BaseButton)`
+export const Large = styled(Base)`
   height: ${spacing(8)};
   padding: 0 ${spacing(4)};
   border-radius: ${spacing(2)};
 `;
 
+export const Icon = styled.button`
+  background: none;
+  cursor: pointer;
+
+  i {
+    font-size: 1.5rem;
+  }
+`;
+
+// will be deprecated
 export const Wrapper = styled.div`
   position: relative;
 `;
 
+// will be deprecated
 export const HoverLayer = styled.div`
   position: absolute;
   width: 100%;

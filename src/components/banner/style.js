@@ -16,8 +16,10 @@ export const HomeBannerContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.bg.banner};
-  transform: ${({ show }) =>
-    `translateY(${show ? '0' : `-${BANNER.DESKTOP}px`})`};
+  transform: ${({ mobile, show }) =>
+    `translateY(${
+      show ? '0' : mobile ? `-${BANNER.MOBILE}px` : `-${BANNER.DESKTOP}px`
+    })`};
   transition: transform 0.3s ease-in-out 0s;
   font-size: 1.25rem;
   z-index: ${Z_INDEX.BANNER};
@@ -34,6 +36,7 @@ export const HomeBannerContainer = styled.div`
 export const HomeBannerContent = styled.span`
   padding: ${spacing(3)};
   color: ${({ theme }) => theme.base.white};
+  text-align: center;
 `;
 
 export const HomeBannerContentLink = styled(Link)`
