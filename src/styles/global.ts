@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export default createGlobalStyle`
   /* font family */
   html, body {
     font-family: Karla, sans-serif !important;
@@ -70,5 +70,3 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
   }
 `;
-
-export default GlobalStyle;

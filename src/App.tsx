@@ -6,8 +6,9 @@ import routes from './routes';
 import GlobalStyle from './styles/global';
 import theme from './styles/theme';
 
-const App = () => {
-  return (
+interface AppProps { }
+
+const App: React.FC<AppProps> = () => (
     <React.Suspense fallback={<div>Loading...</div>}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
@@ -25,7 +26,6 @@ const App = () => {
         </BrowserRouter>
       </ThemeProvider>
     </React.Suspense>
-  );
-};
+);
 
 export default App;

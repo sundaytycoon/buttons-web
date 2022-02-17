@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-import { MEDIA_BREAK, HEIGHT } from 'src/styles/layout';
+import { MEDIA_BREAK, HEIGHT } from "src/styles/layout";
 import {
   HomeBannerContainer,
   HomeBannerContent,
   HomeBannerContentLink,
-} from './style';
+} from "./style";
 
 export const HomeBanner = () => {
-  const [device, setDevice] = useState(''); // '' | 'desktop' | 'mobile'
+  const [device, setDevice] = useState(""); // '' | 'desktop' | 'mobile'
   const [show, setShow] = useState(true);
   const resizeRef = useRef(null);
   const intersectionRef = useRef(null);
@@ -18,9 +18,9 @@ export const HomeBanner = () => {
       const { inlineSize } = entry.contentBoxSize[0];
 
       if (inlineSize >= MEDIA_BREAK.TABLET) {
-        setDevice('desktop');
+        setDevice("desktop");
       } else {
-        setDevice('mobile');
+        setDevice("mobile");
       }
     });
     resizeObserver.observe(resizeRef.current);
@@ -38,7 +38,7 @@ export const HomeBanner = () => {
 
   return (
     <>
-      <HomeBannerContainer mobile={device === 'mobile'} show={show}>
+      <HomeBannerContainer mobile={device === "mobile"} show={show}>
         <HomeBannerContent>
           <span>🎉 We just announced our new Shopify store feature! </span>
           <HomeBannerContentLink to="/stores">Learn more</HomeBannerContentLink>
