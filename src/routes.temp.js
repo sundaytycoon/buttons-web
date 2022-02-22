@@ -3,7 +3,7 @@ import { lazy } from 'react';
 const HomePage = lazy(() => import('src/pages/Home/index1'));
 const LoginPage = lazy(() => import('src/pages/Login'));
 const RegisterPage = lazy(() => import('src/pages/Register'));
-const Error404Page = lazy(() => import('src/pages/Error/404'));
+const Error404Page = lazy(() => import('@src/pages/Error/404'));
 
 const routes = [
   { path: '/', exact: true, Component: HomePage },

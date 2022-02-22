@@ -30,3 +30,27 @@
   $ npm i -g typescript
   $ tsc --init
   ```
+
+## Issue
+- 아니 왜 typescript path alias 안먹는거야아아아아아아
+  ```json
+  // tsconfig.json
+  {
+    "extends": "./tsconfig.paths.json",
+    "compilerOptions": {
+      // settings
+    },
+    "include": ["src"]
+  }
+
+  // tsconfig.paths.json
+  {
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@src/*": ["./src/*"]
+      }
+    }
+  }
+  ```
+- eslint 한거로 format on save 가 안된다... 홀리몰리;;

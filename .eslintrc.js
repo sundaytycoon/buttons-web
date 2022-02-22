@@ -5,11 +5,11 @@ module.exports = {
     node: true,
   },
   extends: [
-    'react-app',
     'eslint:recommended',
-    'airbnb-base',
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
+    
+    'react-app',
+    'plugin:react/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -23,26 +23,14 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-      typescript: {},
-    },
-  },
+  plugins: [
+    'react',
+    '@typescript-eslint',
+  ],
   rules: {
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-        json: 'never',
-      },
-    ],
+    indent: ['error', 2],
+    'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
+    'react/no-children-prop': 'off',
+    'max-len': 'off',
   },
 };
