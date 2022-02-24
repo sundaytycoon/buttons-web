@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import routes from './routes';
 import GlobalStyle from './styles/global';
-import theme from './styles/theme';
+import theme from '@src/styles/theme';
 
 interface AppProps { }
 
@@ -15,12 +15,7 @@ const App: React.FC<AppProps> = () => (
       <BrowserRouter>
         <Routes>
           {routes.map(({ path, Component }, i) => (
-            <Route
-              key={i}
-              // exact={exact}
-              path={path}
-              element={<Component />}
-            />
+            <Route key={i} path={path} element={<Component />} />
           ))}
         </Routes>
       </BrowserRouter>

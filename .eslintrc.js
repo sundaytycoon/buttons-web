@@ -7,7 +7,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    
+
     'react-app',
     'plugin:react/recommended',
   ],
@@ -32,5 +32,6 @@ module.exports = {
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
     'react/no-children-prop': 'off',
     'max-len': 'off',
+    semi: 2
   },
 };
